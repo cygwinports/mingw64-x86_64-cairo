@@ -1,0 +1,40 @@
+NAME="mingw64-x86_64-cairo"
+VERSION=1.12.4
+RELEASE=1
+CATEGORY="Devel"
+SUMMARY="Cross-device vector graphics library for Win64 toolchain"
+DESCRIPTION="This package does NOT contain cygwin binaries.  Instead, it
+contains msvcrt-linked binaries (aka 'mingw').  It is for use with the
+mingw64-x86_64-gcc cross compiler, and installs into the
+/usr/x86_64-w64-mingw32/sys-root/mingw/{lib,include} directories."
+HOMEPAGE="http://cairographics.org/"
+SRC_URI="http://cairographics.org/releases/cairo-${VERSION}.tar.xz"
+SRC_DIR="cairo-${VERSION}"
+CROSS_HOST="x86_64-w64-mingw32"
+inherit cross
+
+DISTCLEANFILES="src/cairo-features.h"
+
+CYGCONF_ARGS="
+	--disable-gtk-doc
+	--disable-gtk-doc-html
+	--disable-directfb
+	--enable-fc
+	--enable-ft
+	--enable-gobject
+	--enable-interpreter
+	--enable-png
+	--enable-pdf
+	--enable-ps
+	--disable-pthread
+	--disable-quartz
+	--enable-script
+	--enable-svg
+	--enable-win32
+	--disable-xcb
+	--disable-xlib
+"
+
+DOCS="COPYING-LGPL-2.1 COPYING-MPL-1.1"
+
+KEEP_LA_FILES="none"
