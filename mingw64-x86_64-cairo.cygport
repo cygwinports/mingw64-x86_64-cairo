@@ -1,5 +1,5 @@
 NAME="mingw64-x86_64-cairo"
-VERSION=1.12.6
+VERSION=1.12.8
 RELEASE=1
 CATEGORY="Devel"
 SUMMARY="Cross-device vector graphics library for Win64 toolchain"
