@@ -1,5 +1,8 @@
+CROSS_HOST="x86_64-w64-mingw32"
+inherit cross
+
 NAME="mingw64-x86_64-cairo"
-VERSION=1.12.8
+VERSION=1.12.14
 RELEASE=1
 CATEGORY="Devel"
 SUMMARY="Cross-device vector graphics library for Win64 toolchain"
@@ -10,8 +13,6 @@ mingw64-x86_64-gcc cross compiler, and installs into the
 HOMEPAGE="http://cairographics.org/"
 SRC_URI="http://cairographics.org/releases/cairo-${VERSION}.tar.xz"
 SRC_DIR="cairo-${VERSION}"
-CROSS_HOST="x86_64-w64-mingw32"
-inherit cross
 
 DISTCLEANFILES="src/cairo-features.h"
 
