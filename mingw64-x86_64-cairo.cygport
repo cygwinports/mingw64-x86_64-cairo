@@ -3,7 +3,7 @@ inherit cross
 
 NAME="mingw64-x86_64-cairo"
 VERSION=1.12.14
-RELEASE=1
+RELEASE=3
 CATEGORY="Devel"
 SUMMARY="Cross-device vector graphics library for Win64 toolchain"
 DESCRIPTION="This package does NOT contain cygwin binaries.  Instead, it
@@ -13,6 +13,7 @@ mingw64-x86_64-gcc cross compiler, and installs into the
 HOMEPAGE="http://cairographics.org/"
 SRC_URI="http://cairographics.org/releases/cairo-${VERSION}.tar.xz"
 SRC_DIR="cairo-${VERSION}"
+PATCH_URI="1.12.14-cairo-gobject-lto.patch"
 
 DISTCLEANFILES="src/cairo-features.h"
 
@@ -35,6 +36,13 @@ CYGCONF_ARGS="
 	--disable-xcb
 	--disable-xlib
 "
+
+src_install() {
+	cd ${B}
+	cyginstall
+
+	rm -fr ${D}${CROSS_DATADIR}/gtk-doc/
+}
 
 DOCS="COPYING-LGPL-2.1 COPYING-MPL-1.1"
 
