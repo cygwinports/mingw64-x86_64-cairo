@@ -2,8 +2,8 @@ CROSS_HOST="x86_64-w64-mingw32"
 inherit cross
 
 NAME="mingw64-x86_64-cairo"
-VERSION=1.12.18
-RELEASE=2
+VERSION=1.14.4
+RELEASE=1
 CATEGORY="Devel"
 SUMMARY="Cross-device vector graphics library for Win64 toolchain"
 DESCRIPTION="This package does NOT contain cygwin binaries.  Instead, it
@@ -13,7 +13,10 @@ mingw64-x86_64-gcc cross compiler, and installs into the
 HOMEPAGE="http://cairographics.org/"
 SRC_URI="http://cairographics.org/releases/cairo-${VERSION}.tar.xz"
 SRC_DIR="cairo-${VERSION}"
-PATCH_URI="1.12.14-cairo-gobject-lto.patch"
+PATCH_URI="
+	http://pkgs.fedoraproject.org/cgit/mingw-cairo.git/plain/0001-win32-Add-cairo-API-to-set-up-a-Win32-surface-for-an.patch
+	1.12.14-cairo-gobject-lto.patch
+"
 
 DISTCLEANFILES="src/cairo-features.h"
 
